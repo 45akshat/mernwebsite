@@ -1,15 +1,20 @@
 import React from 'react';
+
 import './App.css'; // Import the CSS file for styling
-import logo from './assets/logo.png'; // Import the logo image
+import Example from './customer/components/navigation/navigation';
+import HomePage from './customer/pages/HomePage/HomePage';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="Logo" className="App-logo" />
-        <h1>Coming Soon</h1>
-        <p>We are working hard to bring you something amazing. Stay tuned!</p>
-      </header>
+      <div>
+      <Example />
+
+        <HomePage/>
+
+      </div>
+      {/* Other components and content */}
     </div>
   );
 }
