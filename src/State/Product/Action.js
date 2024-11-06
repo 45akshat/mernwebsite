@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_FAILURE, FETCH_PRODUCT_BY_ID_SUCCESS, FETCH_PRODUCT_BY_ID_FAILURE } from './ActionType';
-import { API_BASE_URL } from '../../confighttp://13.200.231.124:5454Config';
+import { API_BASE_URL } from '../../config/apiConfig';
 
 // Action to fetch all products
 export const fetchProducts = (query = '') => async (dispatch) => {
