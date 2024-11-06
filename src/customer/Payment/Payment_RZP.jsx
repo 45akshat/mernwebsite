@@ -31,7 +31,7 @@ export const initiatePayment = async (amount, name, email, contact, user, orderI
   //   receipt: `receipt#${Date.now()}` // Generate a unique receipt
   // });
 
-  const orderResponse = await axios.post("/api/payment/createOrder", orderItems);
+  const orderResponse = await axios.post("/api/payment/createOrder", {orderItems});
 
   const { orderId } = orderResponse.data;
   // console.log(orderResponse);
