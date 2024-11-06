@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
         </div>
 
 {/* Sizes Section */}
-<div className="mt-2 grid grid-cols-4 gap-2">
+<div className="mt-2 grid grid-cols-3 gap-2">
   {product.sizes.map((size) => (
     <div key={size._id} className="relative">
       {size.quantity > 0 ? (

@@ -27,7 +27,7 @@ const HomeSectionCard = ({ product }) => {
 
         {/* Sizes Section */}
 {/* Sizes Section */}
-<div className="mt-2 grid grid-cols-4 lg:grid-cols-6 gap-2">
+<div className="mt-2 grid grid-cols-3 lg:grid-cols-6 gap-2">
   {product.sizes.map((size) => (
     <div key={size._id} className="relative">
       {size.quantity > 0 ? (
