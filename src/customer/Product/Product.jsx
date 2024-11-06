@@ -158,7 +158,7 @@ export default function Product() {
   
   // const fetchProducts = async (query = '') => {
   //   try {
-  //     const response = await axios.get(`http://13.200.231.124:5454/products/products?${query}`);
+  //     const response = await axios.get(`/api/products/products?${query}`);
   //     setProducts(response.data);
   //   } catch (error) {
   //     console.error('Error fetching products:', error);

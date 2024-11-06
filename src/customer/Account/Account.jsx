@@ -41,7 +41,7 @@ const Account = () => {
 
   const fetchAddresses = async () => {
     try {
-      const response = await axios.get(`http://13.200.231.124:5454/address/user/${userId}`);
+      const response = await axios.get(`/api/address/user/${userId}`);
       setAddresses(response.data);
     } catch (error) {
       console.error("Error fetching addresses:", error);
@@ -74,10 +74,10 @@ const Account = () => {
     e.preventDefault();
     try {
       if (currentAddress) {
-        await axios.put(`http://13.200.231.124:5454/address/${currentAddress}`, { ...formData, user: userId });
+        await axios.put(`/api/address/${currentAddress}`, { ...formData, user: userId });
         alert("Address updated successfully!");
       } else {
-        await axios.post(`http://13.200.231.124:5454/address`, { ...formData, user: userId });
+        await axios.post(`/api/address`, { ...formData, user: userId });
         alert("Address created successfully!");
       }
       setShowNewAddressForm(false);
@@ -104,7 +104,7 @@ const Account = () => {
 
   const handleDeleteAddress = async (addressId) => {
     try {
-      await axios.delete(`http://13.200.231.124:5454/address/${addressId}`);
+      await axios.delete(`/api/address/${addressId}`);
       alert("Address deleted successfully!");
       await fetchAddresses();
     } catch (error) {
