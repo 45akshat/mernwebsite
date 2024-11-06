@@ -45,7 +45,7 @@ const CheckoutPage = () => {
   // Fetch addresses function
   const fetchAddresses = async (userId) => {
     try {
-      const response = await axios.get(`/api/address/user/${userId}`);
+      const response = await axios.get(`http://13.200.231.124:5454//address/user/${userId}`);
       setAddresses(response.data);
        // Set the first address as the current address if available
        if (response.data.length > 0) {
@@ -109,10 +109,10 @@ const CheckoutPage = () => {
     const userId = localStorage.getItem("uid");
     try {
       if (currentAddress) {
-        await axios.put(`/api/address/${currentAddress}`, { ...formData, user: userId });
+        await axios.put(`http://13.200.231.124:5454//address/${currentAddress}`, { ...formData, user: userId });
         alert("Address updated successfully!");
       } else {
-        await axios.post(`/api/address`, { ...formData, user: userId });
+        await axios.post(`http://13.200.231.124:5454//address`, { ...formData, user: userId });
         alert("Address created successfully!");
       }
       setShowNewAddressForm(false); // Hide the form after creation/updating
@@ -140,7 +140,7 @@ const CheckoutPage = () => {
   const handleDeleteAddress = async (addressId) => {
     const userId = localStorage.getItem("uid");
     try {
-      await axios.delete(`/api/address/${addressId}`);
+      await axios.delete(`http://13.200.231.124:5454//address/${addressId}`);
       alert("Address deleted successfully!");
       fetchAddresses(userId); // Refresh addresses
     } catch (error) {
