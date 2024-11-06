@@ -1,47 +1,104 @@
-import React from 'react'
-import AliceCarousel from 'react-alice-carousel'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Slider from 'react-slick';
 import HomeSectionCard from '../HomeSectionCard/HomeSectionCard';
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import { Button } from '@mui/material';
+import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick-theme.css';
+import './HomeSectionCarousel.css'; // Import a CSS file for custom styles
 
 const HomeSectionCarousel = () => {
-    const responsive = {
-        0: { 
-            items: 2.2
-        },
-        720: { 
-            items: 3
-        },
-        1024: {
-            items: 4, 
-        },
+    const products = useSelector((state) => state.products.products);
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                },
+            },
+            {
+                breakpoint: 720,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2, // Show only one slide on mobile
+                    slidesToScroll: 2,
+                },
+            },
+        ],
     };
 
-    const items = [1,1,1,1].map((item)=> <HomeSectionCard/>)
+    // Map over products to create HomeSectionCard components
+    const items = products.map((product) => <HomeSectionCard key={product.id} product={product} />);
 
-  return (
-    <div className='relative w-100%'>
-        <div className='relative p-4'>
-          <AliceCarousel
-            animationType="fadeout"
-            animationDuration={800}
-            items={items}
-            disableButtonsControls
-            responsive={responsive}
-            />
-
+    return (
+        <div className='relative w-full'>
+            <div className='relative p-2'>
+                <Slider {...settings}>
+                    {items}
+                </Slider>
+            </div>
         </div>
-<button class="z-50 bg-transparent absolute top-1/2 right-[5vw] transform translate-x-1/2 rotate-90 p-0 shadow-none" aria-label="next">
-    <ArrowCircleLeftIcon sx={{transform:"rotate(90deg)", color:'#454f599c', fontSize: "28px"}} />
-</button>
-
-
-<button class="z-50 bg-transparent absolute top-1/2 left-[5vw] transform -translate-x-1/2 rotate-90 p-0 shadow-none" aria-label="previous">
-    <ArrowCircleLeftIcon sx={{transform:"rotate(-90deg)", color:'#454f599c', fontSize: "28px"}} />
-</button>
-
-    </div>
-  )
+    );
 }
 
-export default HomeSectionCarousel
+// Arrow components
+const SampleNextArrow = (props) => {
+    const { onClick } = props;
+    return (
+<div className="arrow next" onClick={onClick}>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        width="24"
+        height="24"
+    >
+        <polyline points="9 18 15 12 9 6" />
+    </svg>
+</div>
+
+    );
+}
+
+const SamplePrevArrow = (props) => {
+    const { onClick } = props;
+    return (
+<div className="arrow prev" onClick={onClick}>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        width="24"
+        height="24"
+    >
+        <polyline points="15 18 9 12 15 6" />
+    </svg>
+</div>
+
+    );
+}
+
+export default HomeSectionCarousel;

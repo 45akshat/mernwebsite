@@ -1,0 +1,143 @@
+/* Footer Component CSS */
+
+.footer {
+  padding: 20px; /* Reduce padding for mobile */
+  background-color: #000;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+  justify-content: space-between;
+  padding-bottom: 20px; /* Reduced padding */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.footer-column {
+  flex: 1 1 100%; /* Full width on smaller screens */
+  max-width: 200px;
+  margin-bottom: 20px; /* Add margin below each column */
+}
+
+.footer-heading {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  font-size: 12px;
+  color: #b0b0b0;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.live-dot {
+  color: red;
+  font-size: 10px;
+  margin-right: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 12px;
+  color: #666666;
+}
+
+.footer-legal {
+  display: flex;
+  flex-direction: column; /* Stack links on smaller screens */
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column; /* Stack columns vertically */
+    align-items: center;
+  }
+
+  .footer-column {
+    max-width: 100%; /* Full width on mobile */
+    text-align: center; /* Center text on mobile */
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+/* Accordion Style */
+.footer-list {
+  display: none; /* Hide list by default */
+  list-style: none;
+  padding: 0;
+}
+
+.footer-list.active {
+  display: block; /* Show when active */
+}
+
+/* For Desktop View */
+@media (min-width: 769px) {
+  .footer-list {
+    display: block; /* Always show on desktop */
+  }
+  .footer-top{
+    width: 100vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .footer-top {
+  flex-direction: row;
+    
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .footer-column {
+    max-width: 100%; /* Full width on mobile */
+    text-align: left; /* Align text to the left */
+    padding-left: 10px; /* Optional: Add a bit of padding to left for spacing */
+  }
+
+  .footer-legal {
+    align-items: flex-start; /* Align legal links to the left */
+  }
+}
+

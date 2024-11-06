@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahoom</title>
+    
+    <link rel="icon" href="/assets/fav.jpeg" type="image/jpeg">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+        }
+
+        .App {
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .App-header {
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        h4 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #main_div {
+            background-color: #000000;
+            color: white;
+        }
+
+        .banner {
+            width: 100%; /* Make banner responsive */
+            max-width: 800px; /* Maximum width for larger screens */
+            height: auto; /* Maintain aspect ratio */
+            margin: 0 auto; /* Center the banner */
+            display: block; /* Ensures block-level behavior for centering */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 1em;
+            margin: 0 20px;
+        }
+
+        .footer {
+            background-color: #000921;
+            color: #fff;
+            padding: 20px 15px;
+            text-align: center;
+        }
+
+        .footer h2 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .footer-links {
+            margin: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f0a500;
+        }
+
+        .social-icons {
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #f0a500;
+        }
+
+        .footer-contact {
+            margin: 15px 0;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .App-header {
+                font-size: calc(8px + 2vmin);
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-links a {
+                font-size: 12px;
+            }
+
+            .social-icons a {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 0.85em;
+            }
+
+            .footer {
+                padding: 15px 10px;
+            }
+
+            .footer-links a {
+                font-size: 11px;
+            }
+
+            .social-icons a {
+                font-size: 16px;
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <img src="assets/logo.jpeg" alt="logo" class="logo" height="40">
+        </header>
+        
+        <div id="main_div">
+            <img src="assets/banner.png" alt="banner" class="banner">
+            <br>
+            <br>
+            <p>Yahoom - Streetwear corner</p>
+            <br>
+            <br>
+        </div>
+        
+        <footer class="footer">
+            <h2>Yahoom</h2>
+            <p>Streetwear that speaks amazing</p>
+
+            <div class="footer-links">
+                <a href="about-us.html">About Us</a>
+                <a href="contact-us.html">Contact Us</a>
+                <a href="exchange-policy.html">Exchange Policy</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="refund-return-cancellation.html">Refund & Return</a>
+                <a href="shipping-policy.html">Shipping Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+
+            <div class="social-icons">
+                <a href="https://www.instagram.com/yahoom.in/" target="_blank" aria-label="Instagram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30" height="30">
+                </a>
+            </div>
+
+            <div class="footer-contact">
+                <p>Email: info@yahoom.in</p>
+            </div>
+            <p>&copy; Lal Melwani & Grandsons LLP </p>
+        </footer>
+    </div>
+</body>
+</html>

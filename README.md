@@ -1,5 +1,8 @@
 <!-- https://youtu.be/glMRU2ER1q8?si=tgR_PgCYtWTru1wx -->
 
+timestamp hr 3:06:28 for discount and price filter
+end 3:26:51 / 6:31
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

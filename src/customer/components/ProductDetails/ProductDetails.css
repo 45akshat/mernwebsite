@@ -1,0 +1,126 @@
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+
+/* Slide-down transition */
+.slide-down-enter {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.7s ease-out, opacity 0.7s ease-out;
+}
+
+.slide-down-enter-active {
+  max-height: 1000px; /* large enough to show the content */
+  opacity: 1;
+}
+
+.slide-down-exit {
+  max-height: 1000px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.slide-down-exit-active {
+  max-height: 0;
+  opacity: 0;
+}
+
+
+
+.cart-enter {
+  transform: translateX(100%);
+  opacity: 0;
+  
+}
+
+.cart-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.cart-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.cart-exit-active {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.slick-dots li{
+  width: 50px;
+  height: auto;
+
+}
+
+.slick-dots{
+  position: relative;
+  
+  bottom: 0;
+}
+
+/* Styles for desktop devices only */
+@media (min-width: 1024px) { /* Adjust the min-width as per your requirements */
+  .slick-list {
+  }
+
+  .slick-dots li{
+    height: auto;
+    width: 50px;
+  }
+
+  .slick-dots{
+    position: relative;
+    bottom: 0;
+  }
+  
+}
+
+.selected-size {
+  background-color: #000000; /* Tailwind's blue-500 color */
+  color: white;
+  border-color: #5307d6; /* Adjust border color if needed */
+}
