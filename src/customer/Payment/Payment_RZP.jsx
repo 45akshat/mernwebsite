@@ -25,13 +25,13 @@ export const initiatePayment = async (amount, name, email, contact, user, orderI
   }
 
   // Request the backend to create a Razorpay order
-  // const orderResponse = await axios.post("http://localhost:5454/payment/createOrder", {
+  // const orderResponse = await axios.post("/api/payment/createOrder", {
   //   amount: amount * 100, // amount in paise
   //   currency: "INR",
   //   receipt: `receipt#${Date.now()}` // Generate a unique receipt
   // });
 
-  const orderResponse = await axios.post("http://localhost:5454/payment/createOrder", orderItems);
+  const orderResponse = await axios.post("/api/payment/createOrder", orderItems);
 
   const { orderId } = orderResponse.data;
   // console.log(orderResponse);
@@ -71,7 +71,7 @@ export const initiatePayment = async (amount, name, email, contact, user, orderI
 
       try {
         // Send payment details to backend for verification
-        const verifyResponse = await axios.post("http://localhost:5454/payment/verifyPayment", data);
+        const verifyResponse = await axios.post("/api/payment/verifyPayment", data);
 
         // Check the response status from the backend
         if (verifyResponse.data.status === "success") {
