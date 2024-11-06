@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_BASE_URL } from "../../confighttp://13.200.231.124:5454/Config";
+import { API_BASE_URL } from "../../confighttp://13.200.231.124:5454Config";
 import {
     GET_USER_FAILURE,
     GET_USER_REQUEST,

@@ -31,7 +31,7 @@ const LoginForm = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://13.200.231.124:5454//auth/request-otp/', { email });
+      const response = await axios.post('http://13.200.231.124:5454/auth/request-otp/', { email });
       // console.log('OTP sent:', response.data);
       setStep(2);
     } catch (err) {
@@ -48,7 +48,7 @@ const LoginForm = () => {
 
     try {
       dispatch(login({ email, password: otp }, navigate))
-      // const response = await axios.post('http://13.200.231.124:5454//auth/signin/', { email, password: otp });
+      // const response = await axios.post('http://13.200.231.124:5454/auth/signin/', { email, password: otp });
       // // console.log('OTP verified:', response.data);
       // const { jwt, message } = response.data;
       // localStorage.setItem('authToken', jwt);

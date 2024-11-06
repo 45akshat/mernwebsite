@@ -28,7 +28,7 @@ export const fetchUserOrders = (userId) => {
   return async (dispatch) => {
     dispatch(fetchUserOrdersRequest());
     try {
-      const response = await fetch(`http://13.200.231.124:5454//order/user/${userId}`);
+      const response = await fetch(`http://13.200.231.124:5454/order/user/${userId}`);
       const data = await response.json();
       // console.log(data); // Optional: log the fetched data
       dispatch(fetchUserOrdersSuccess(data));

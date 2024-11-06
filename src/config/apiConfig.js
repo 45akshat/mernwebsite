@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const API_BASE_URL = 'http://13.200.231.124:5454/'
+export const API_BASE_URL = 'http://13.200.231.124:5454'
 const jwt = localStorage.getItem('jwt')
 
 export const api = axios.create({
