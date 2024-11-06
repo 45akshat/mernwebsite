@@ -78,6 +78,8 @@ export default function Example({ page_is }) {
     }
     if (!jwt) {
       if (location.pathname === '/account' || location.pathname === '/checkout') {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top smoothly
+
         navigate('/login');
       }
     }
