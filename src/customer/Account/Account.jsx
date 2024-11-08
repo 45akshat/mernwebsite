@@ -36,6 +36,7 @@ const Account = () => {
 
   useEffect(() => {
     fetchAddresses(userId);
+    console.log(jwt)
     dispatch(fetchUserOrders(userId, jwt)); // Dispatch action to fetch user orders
     // console.log("#main controls for fetching inital")
   }, [dispatch, userId, jwt, authData]);

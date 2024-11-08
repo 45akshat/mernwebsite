@@ -46,6 +46,7 @@ const CheckoutPage = () => {
   const fetchAddresses = async (userId) => {
     try {
   let jwt = localStorage.getItem('jwt');
+  console.log(jwt)
 
       const response = await axios.get(`/api/address/user/${userId}`, {
         headers: {
