@@ -24,10 +24,9 @@ export const resetOrders = () => ({
 });
 
 // Fetch User Orders Function
-export const fetchUserOrders = (userId) => {
+export const fetchUserOrders = (userId, jwt) => {
   return async (dispatch) => {
     dispatch(fetchUserOrdersRequest());
-  let jwt = localStorage.getItem('jwt');
 
     try {
       const response = await fetch(`/api/order/user/${userId}`, {

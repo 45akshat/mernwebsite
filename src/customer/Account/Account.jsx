@@ -32,16 +32,16 @@ const Account = () => {
   });
 
   const userId = localStorage.getItem("uid");
+  const jwt = localStorage.getItem("jwt");
 
   useEffect(() => {
     fetchAddresses(userId);
-    dispatch(fetchUserOrders(userId)); // Dispatch action to fetch user orders
+    dispatch(fetchUserOrders(userId, jwt)); // Dispatch action to fetch user orders
     // console.log("#main controls for fetching inital")
-  }, [dispatch, userId, authData]);
+  }, [dispatch, userId, jwt, authData]);
 
   const fetchAddresses = async () => {
     try {
-  let jwt = localStorage.getItem('jwt');
 
       const response = await axios.get(`/api/address/user/${userId}`, {
         headers: {
