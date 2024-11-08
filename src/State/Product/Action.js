@@ -5,7 +5,7 @@ import { API_BASE_URL } from '../../config/apiConfig';
 // Action to fetch all products
 export const fetchProducts = (query = '') => async (dispatch) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/products/products?${query}`);
+    const response = await axios.get(`${API_BASE_URL}products/products?${query}`);
     console.log(response)
     dispatch({
       type: FETCH_PRODUCTS_SUCCESS,
@@ -22,7 +22,7 @@ export const fetchProducts = (query = '') => async (dispatch) => {
 // Action to fetch product by ID
 export const fetchProductById = (id) => async (dispatch) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/products/products/${id}`);
+    const response = await axios.get(`${API_BASE_URL}products/products/${id}`);
     dispatch({
       type: FETCH_PRODUCT_BY_ID_SUCCESS,
       payload: response.data,

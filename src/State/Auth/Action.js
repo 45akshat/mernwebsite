@@ -19,7 +19,7 @@ export const login = (userData, navigate) => async (dispatch) => {
     dispatch(loginRequest());
 
     try {
-        const response = await axios.post(`${API_BASE_URL}/auth/signin`, userData);
+        const response = await axios.post(`${API_BASE_URL}auth/signin`, userData);
         const user = response.data;
         
         
@@ -45,7 +45,7 @@ export const getUser = (jwt, path) => async (dispatch) => {
     dispatch(getUserRequest());
 
     try {
-        const response = await axios.get(`${API_BASE_URL}/users/profile`, {
+        const response = await axios.get(`${API_BASE_URL}users/profile`, {
             headers: {
                 "Authorization": `Bearer ${jwt}`
             }

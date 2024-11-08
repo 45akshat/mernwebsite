@@ -27,8 +27,14 @@ export const resetOrders = () => ({
 export const fetchUserOrders = (userId) => {
   return async (dispatch) => {
     dispatch(fetchUserOrdersRequest());
+  let jwt = localStorage.getItem('jwt');
+
     try {
-      const response = await fetch(`/api/order/user/${userId}`);
+      const response = await fetch(`http://localhost:5454/order/user/${userId}`, {
+        headers: {
+            "Authorization": `Bearer ${jwt}`
+        }
+    });
       const data = await response.json();
       // console.log(data); // Optional: log the fetched data
       dispatch(fetchUserOrdersSuccess(data));
