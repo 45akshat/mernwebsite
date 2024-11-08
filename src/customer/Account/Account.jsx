@@ -43,7 +43,7 @@ const Account = () => {
     try {
   let jwt = localStorage.getItem('jwt');
 
-      const response = await axios.get(`http://localhost:5454/address/user/${userId}`, {
+      const response = await axios.get(`/api/address/user/${userId}`, {
         headers: {
             "Authorization": `Bearer ${jwt}`
         }
@@ -80,10 +80,10 @@ const Account = () => {
     e.preventDefault();
     try {
       if (currentAddress) {
-        await axios.put(`http://localhost:5454/address/${currentAddress}`, { ...formData, user: userId });
+        await axios.put(`/api/address/${currentAddress}`, { ...formData, user: userId });
         alert("Address updated successfully!");
       } else {
-        await axios.post(`http://localhost:5454/address`, { ...formData, user: userId });
+        await axios.post(`/api/address`, { ...formData, user: userId });
         alert("Address created successfully!");
       }
       setShowNewAddressForm(false);
@@ -110,7 +110,7 @@ const Account = () => {
 
   const handleDeleteAddress = async (addressId) => {
     try {
-      await axios.delete(`http://localhost:5454/address/${addressId}`);
+      await axios.delete(`/api/address/${addressId}`);
       alert("Address deleted successfully!");
       await fetchAddresses();
     } catch (error) {

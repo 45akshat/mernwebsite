@@ -30,7 +30,7 @@ export const fetchUserOrders = (userId) => {
   let jwt = localStorage.getItem('jwt');
 
     try {
-      const response = await fetch(`http://localhost:5454/order/user/${userId}`, {
+      const response = await fetch(`/api/order/user/${userId}`, {
         headers: {
             "Authorization": `Bearer ${jwt}`
         }
