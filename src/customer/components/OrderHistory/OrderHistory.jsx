@@ -11,7 +11,8 @@ const OrderHistory = () => {
   useEffect(() => {
     let userId = "abc"; 
     userId = localStorage.getItem("uid")
-    jwt = localStorage.getItem("jwt")
+    
+    const jwt = localStorage.getItem("jwt")
     
     dispatch(fetchUserOrders(userId, jwt)); // Dispatch action to fetch user orders
   }, [dispatch]);
