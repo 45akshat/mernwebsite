@@ -60,9 +60,9 @@ const ProductDetails = () => {
   useEffect(() => {
     
     if (product) {
-    trackProductView(product._id, product.title);
+    trackProductView(productId, product.title);
     }
-  }, [product._id, product.title]);
+  }, [productId, product]);
 
 
 

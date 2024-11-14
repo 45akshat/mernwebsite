@@ -73,3 +73,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- https://youtu.be/glMRU2ER1q8?si=tgR_PgCYtWTru1wx -->
+sudo cp -r mernwebsite/build/* /var/www/html/
+timestamp hr 3:06:28 for discount and price filter
+end 3:26:51 / 6:31
