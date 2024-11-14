@@ -23,6 +23,7 @@ import '../ProductDetails/ProductDetails.css'
 import { fetchProductById } from '../../../State/Product/Action'; // Adjust the import path accordingly
 import { useDispatch, useSelector } from 'react-redux';
 import { addCartItem } from '../../../State/Cart/Reducer';
+import { trackAddToCart } from '../../../pixel';
 
 
 const ProductDetails = () => {
@@ -55,6 +56,16 @@ const ProductDetails = () => {
     }
   }, [dispatch, productId]);
 
+  
+  useEffect(() => {
+    
+    if (product) {
+    trackProductView(product._id, product.title);
+    }
+  }, [product._id, product.title]);
+
+
+
   // Effect to set color and size after product fetch
   useEffect(() => {
     if (product) {
@@ -75,6 +86,7 @@ const ProductDetails = () => {
   const handleAddToCart = (event) => {
     event.preventDefault();
     setShowCart(true); // Show the cart when the button is clicked
+
 
     // Ensure a size is selected
     if (!selectedSize) {
@@ -106,6 +118,9 @@ const ProductDetails = () => {
       price: product.discountedPrice, // Use the discounted price
       quantity: 1 // Assuming you want to add one item at a time
     };
+
+    trackAddToCart(product._id, product.title, product.discountedPrice);
+
 
     dispatch(addCartItem(cartProductDetails));
   };

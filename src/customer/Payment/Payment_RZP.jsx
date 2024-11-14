@@ -1,5 +1,6 @@
 import axios from "axios";
 import { clearCart } from "../../State/Cart/Reducer";
+import { trackPurchase } from "../../pixel";
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -76,6 +77,8 @@ export const initiatePayment = async (amount, name, email, contact, user, orderI
         // Check the response status from the backend
         if (verifyResponse.data.status === "success") {
           alert("Payment Successful!");
+
+        trackPurchase(orderId, amount);
           handleClearCart()
 
           navigate("/account");  // Redirect to /account on success

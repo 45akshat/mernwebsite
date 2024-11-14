@@ -3,6 +3,8 @@ import { FixedSizeList as List } from "react-window";
 import MainCarousel from "../../components/HomeCarousel/MainCarousel";
 import Footer from "../../components/navigation/footer";
 import { useNavigate } from "react-router-dom";
+import { trackPageView } from "../../../pixel";
+
 
 const Links = ({ currentIndex }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -18,8 +20,28 @@ const Links = ({ currentIndex }) => {
     navigate('/products'); // Navigate to the /products page
   };
 
+  useEffect(() => {
+    const preventScroll = (e) => e.preventDefault();
+
+    // Add event listeners to disable scrolling within the component
+    const divElement = document.getElementById('no-scroll-div');
+    if (divElement) {
+      divElement.addEventListener('wheel', preventScroll, { passive: false });
+      divElement.addEventListener('touchmove', preventScroll, { passive: false });
+    }
+
+    // Cleanup event listeners on component unmount
+    return () => {
+      if (divElement) {
+        divElement.removeEventListener('wheel', preventScroll);
+        divElement.removeEventListener('touchmove', preventScroll);
+      }
+    };
+  }, []);
+
   return (
     <div
+      id="no-scroll-div"
       style={{
         position: "absolute",
         bottom: "3%",
@@ -27,6 +49,7 @@ const Links = ({ currentIndex }) => {
         transform: "translate(-50%, -50%)", // This centers the content
         zIndex: 100,
         textAlign: "center", // To center the text itself within the div
+        overflow: 'hidden',
       }}
     >
       <div style={{
@@ -87,7 +110,6 @@ const Links = ({ currentIndex }) => {
     </div>
   );
 };
-
 
 const MainCarouselItem = ({ style }) => (
   <div
@@ -194,10 +216,13 @@ const DesktopSnapScroll = ({ items }) => {
         width={viewportSize.width}
         onScroll={handleScroll}
         style={{
+          // width:"100vw",
+
           scrollSnapType: "y mandatory",
           overflowY: "scroll",
           scrollbarWidth: "none",
-          overflowX:'hidden'
+          overflowX:'hidden',
+          
         }}
         className="hide-scrollbar"
       >
@@ -331,10 +356,12 @@ const HomePage = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
+    trackPageView();
+
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
   return (
     <div className="App">
       {isMobile ? <MobileSnapScroll items={items} isMobile={isMobile} /> : <DesktopSnapScroll items={items} />}
