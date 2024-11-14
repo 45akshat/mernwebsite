@@ -56,32 +56,26 @@ const ProductDetails = () => {
     }
   }, [dispatch, productId]);
 
-  
-  useEffect(() => {
-    
-    if (product.title != "") {
-    trackProductView(productId, product.title);
-    }
-  }, [productId, product]);
 
-
-
-  // Effect to set color and size after product fetch
   useEffect(() => {
     if (product) {
       setSelectedColor(product.color);
 
-      // Find the first available size with quantity > 0
       const availableSize = product.sizes.find(size => size.quantity > 0);
-      if (availableSize) {
-        setSelectedSize(availableSize); // Set selected size to the first available size
-      } else {
-        setSelectedSize(null); // No available sizes
-      }
+      setSelectedSize(availableSize || null);
 
-      setLoading(false); // Set loading to false when product is fetched
+      setLoading(false);
+    } else if (error) {
+      setLoading(false); // End loading if there's an error
+    }
+  }, [product, error]);
+
+  useEffect(() => {
+    if (product && product.title) {
+      trackProductView(productId, product.title);
     }
   }, [product]);
+
 
   const handleAddToCart = (event) => {
     event.preventDefault();
