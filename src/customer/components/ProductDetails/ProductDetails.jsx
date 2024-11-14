@@ -23,7 +23,7 @@ import '../ProductDetails/ProductDetails.css'
 import { fetchProductById } from '../../../State/Product/Action'; // Adjust the import path accordingly
 import { useDispatch, useSelector } from 'react-redux';
 import { addCartItem } from '../../../State/Cart/Reducer';
-import { trackAddToCart } from '../../../pixel';
+import { trackAddToCart, trackProductView } from '../../../pixel';
 
 
 const ProductDetails = () => {
