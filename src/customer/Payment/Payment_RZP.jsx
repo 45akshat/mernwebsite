@@ -67,7 +67,7 @@ export const initiatePayment = async (amount, name, email, contact, user, orderI
         },
         discount: 50, // Adjust or calculate as necessary
         totalPrice: amount * 100, // Total price without discounts in paise
-        totalDiscountedPrice: (amount * 100) - 50 // Total price after discount (example)
+        totalDiscountedPrice: (amount * 100) // Total price after discount (example)
       };
 
       try {
