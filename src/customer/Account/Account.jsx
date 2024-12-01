@@ -83,9 +83,13 @@ const Account = () => {
       if (currentAddress) {
         await axios.put(`/api/address/${currentAddress}`, { ...formData, user: userId });
         alert("Address updated successfully!");
+        window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+
       } else {
         await axios.post(`/api/address`, { ...formData, user: userId });
         alert("Address created successfully!");
+        window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+
       }
       setShowNewAddressForm(false);
       await fetchAddresses();
