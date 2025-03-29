@@ -111,7 +111,7 @@ function CartItem({ setShowCart, showCart }) {
                             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                               <img
                                 alt={product.imageAlt}
-                                src={"https://sfycdn.speedsize.com/d31641c5-60cb-4a0b-8662-59094f81bb6e/"+product.imageSrc+"&v=1728044930&width=2720"}
+                                src={product.imageSrc}
                                 className="h-full w-full object-cover object-center"
                               />
                             </div>

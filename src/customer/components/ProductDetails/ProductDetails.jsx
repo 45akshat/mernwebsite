@@ -142,7 +142,7 @@ const ProductDetails = () => {
     customPaging: function (i) {
       return (<img
 
-        src={"https://sfycdn.speedsize.com/d31641c5-60cb-4a0b-8662-59094f81bb6e/"+product.imageUrls[i]+"&v=1728044930&width=2720"}
+        src={product.imageUrls[i]}
         alt={`Thumbnail ${i + 1}`}
       />
       );
@@ -195,7 +195,7 @@ const ProductDetails = () => {
               {product.imageUrls.map((url, index) => (
                 <div key={index}>
                   <img
-                    src={"https://sfycdn.speedsize.com/d31641c5-60cb-4a0b-8662-59094f81bb6e/"+url+"&v=1728044930&width=2720"}
+                    src={url}
                     alt={`Slide ${index + 1}`}
                     style={style}
                   />
@@ -304,7 +304,7 @@ const ProductDetails = () => {
               {/* Image */}
               <div className="flex justify-center mt-4">
                 <img
-                  src={selectedTab === "inch" ? "https://sfycdn.speedsize.com/d31641c5-60cb-4a0b-8662-59094f81bb6e/"+inchImageUrl+"&v=1728044930&width=2720" : "https://sfycdn.speedsize.com/d31641c5-60cb-4a0b-8662-59094f81bb6e/"+cmImageUrl+"&v=1728044930&width=2720"}
+                  src={selectedTab === "inch" ? inchImageUrl : cmImageUrl}
                   alt="Size Chart"
                   className="max-w-full h-auto"
                 />

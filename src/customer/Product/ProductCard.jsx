@@ -10,8 +10,8 @@ const ProductCard = ({ product }) => {
   return (
     <div onClick={() => navigate(`/product/${product._id}`)} className='productCard w-[100%] transition-all cursor-pointer'>
       <div className='h-[14em] relative image-container'>
-        <img className='h-[100%] w-full object-cover object-left-top image-default' src={"https://sfycdn.speedsize.com/d31641c5-60cb-4a0b-8662-59094f81bb6e/"+product.imageUrls[0]+"&v=1728044930&width=2720"} alt="Default" />
-        <img className='h-[100%] w-full object-cover object-left-top image-hover' src={"https://sfycdn.speedsize.com/d31641c5-60cb-4a0b-8662-59094f81bb6e/"+product.imageUrls[1]+"&v=1728044930&width=2720"} alt="On Hover" />
+        <img className='h-[100%] w-full object-cover object-left-top image-default' src={product.imageUrls[0]} alt="Default" />
+        <img className='h-[100%] w-full object-cover object-left-top image-hover' src={product.imageUrls[1]} alt="On Hover" />
       </div>
 
       <div className='textPart bg-white p-3'>
